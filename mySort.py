@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib import animation
+from matplotlib.animation import FuncAnimation, PillowWriter
 import algorithms
 from randomInput import randomInput
 from txtInput import readFile
@@ -77,7 +78,7 @@ def update(values, rectangles, comparisons):
         # plt.text((rect.get_x() + rect.get_width() / 2), val, val)
         # axis.text(val, 0.005, val, ha='center', weight='bold')
     comparisons[0] += 1
-    text.set_text(("Comparisons:", comparisons))
+    text.set_text(("Frames:", comparisons))
 
 # Creating animation object
 DSanimation = animation.FuncAnimation(
@@ -91,7 +92,12 @@ DSanimation = animation.FuncAnimation(
     save_count=90000,
 )
 
+# gifTitle = title+"_demoGIF.gif"
+# writer = PillowWriter(fps=15)
+# DSanimation.save(gifTitle, writer=writer)
+
 # for showing the animation on screen
 plt.show()
+
 plt.close()
 
